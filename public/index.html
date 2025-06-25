@@ -202,15 +202,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>MCP Filesystem Manager</h1>
+        <h1>🚀 MCP Filesystem Manager</h1>
         
         <div class="upload-section">
             <h3>📁 Upload Files</h3>
             <div class="file-input-wrapper">
-                <input type="file" id="fileInput" multiple webkitdirectory>
+                <input type="file" id="fileInput" multiple>
+                <span>Choose Files</span>
+            </div>
+            <div class="file-input-wrapper" style="margin-left: 10px;">
+                <input type="file" id="folderInput" multiple webkitdirectory>
                 <span>Choose Folder</span>
             </div>
-            <p style="margin-top: 10px; color: #666;">Select a folder to upload all its files</p>
+            <p style="margin-top: 10px; color: #666;">Select files or a folder to upload</p>
         </div>
 
         <div class="controls">
@@ -231,7 +235,7 @@
         </div>
 
         <div class="prompt-section">
-            <h3>AI-Powered File Operations</h3>
+            <h3>🤖 AI-Powered File Operations</h3>
             <textarea id="promptInput" class="prompt-input" placeholder="Enter your file operation request (e.g., 'Create a new file called README.md with project documentation', 'Edit the config.json file to add a new API endpoint', 'Delete all .log files')"></textarea>
             <button id="executeBtn" class="btn">⚡ Execute Command</button>
         </div>
@@ -302,6 +306,7 @@
 
             initializeEventListeners() {
                 document.getElementById('fileInput').addEventListener('change', this.handleFileUpload.bind(this));
+                document.getElementById('folderInput').addEventListener('change', this.handleFileUpload.bind(this));
                 document.getElementById('saveBtn').addEventListener('click', this.saveCurrentFile.bind(this));
                 document.getElementById('deleteBtn').addEventListener('click', this.deleteCurrentFile.bind(this));
                 document.getElementById('executeBtn').addEventListener('click', this.executePrompt.bind(this));
